@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import './Home.css';
+import ServiceCard from './ServiceCard';
 
 const Home = () => {
+    const [services, setServices] = useState([])
+    useEffect(() => {
+
+
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => setServices(data))
+
+
+
+    }, [])
     return (
         <div>
             <Carousel>
@@ -43,7 +55,28 @@ const Home = () => {
                 </Carousel.Item>
             </Carousel>
             <section>
-                <h1>fdfdfdfdfdfdf</h1>
+                <div className='container'>
+                    <div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 d-flex justify-content-center my-5'>
+                        {
+                            services.map(service => (
+                                <ServiceCard
+
+                                    key={service.id}
+                                    service={service}
+
+
+
+
+                                ></ServiceCard>
+
+
+
+                            ))
+                        }
+
+                    </div>
+                </div>
+
             </section>
         </div>
     );
