@@ -1,11 +1,23 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, Routes } from 'react-router-dom';
+import About from './About';
 import './App.css';
+import Blog from './Blog';
+import Header from './Header';
+import Home from './Home';
+import NotFound from './NotFound';
 
 function App() {
   return (
     <div>
-    
-    
+      <Header></Header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
 
     </div>
   );
