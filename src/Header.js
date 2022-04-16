@@ -16,6 +16,7 @@ const Header = () => {
                         <Customlink to="/">Home</Customlink>
                         <Customlink to="/blog">Blogs</Customlink>
                         <Customlink to="/about">About</Customlink>
+                        <Customlink to="/login">Login</Customlink>
                         
                         </div>
                     </div>
