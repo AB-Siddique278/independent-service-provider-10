@@ -3,42 +3,71 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
+import app from "./firebase.init"
+import SocialLogin from './SocialLogin';
+
+
+
+
+
 const SignUp = () => {
+    
+    
+
+   
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmpassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    
     const navigate = useNavigate();
-    const [createUserWithEmailAndPassword, user]=useCreateUserWithEmailAndPassword(auth)
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth)
 
-    const handleEmailBlur = event =>{
+    const handleEmailBlur = event => {
         setEmail(event.target.value);
-        
+
     }
-    const handlePasswordBlur = event =>{
+    const handlePasswordBlur = event => {
         setPassword(event.target.value);
 
     }
 
-    const handleConfirmPasswordBlur = event =>{
+    const handleConfirmPasswordBlur = event => {
         setConfirmPassword(event.target.value);
 
     }
-    if(user){
+    if (user) {
         navigate('/home');
     }
 
-    const handleCreateUser = event =>{
+    const handleCreateUser = event => {
         event.preventDefault();
-        if(password !== confirmpassword){
+        if (password !== confirmpassword) {
             setError('your two password dosenot match');
             return;
         }
-        if(password.length <5){
+        if (password.length < 5) {
             setError('password must 6 characters')
         }
         createUserWithEmailAndPassword(email, password);
     }
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return (
         <div>
@@ -62,13 +91,13 @@ const SignUp = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label> Confirm Password</Form.Label>
-                        <Form.Control onBlur={handleConfirmPasswordBlur} type="password" placeholder=" Confarm Password"  required/>
+                        <Form.Control onBlur={handleConfirmPasswordBlur} type="password" placeholder=" Confarm Password" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
-                    <p style={{color:"red"}}>
+                    <p style={{ color: "red" }}>
                         {error}
                     </p>
                     <Button variant="primary" type="submit">
@@ -78,7 +107,8 @@ const SignUp = () => {
                 <p>
                     Alrady have an account <Link to="/login"> Login Now</Link>
                 </p>
-            
+                <hr />
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );

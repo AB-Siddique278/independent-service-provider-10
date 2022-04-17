@@ -3,10 +3,12 @@ import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from './firebase.init';
+import './Login.css';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const [email, setEmail] = useState('');
-    const [password,setPassword] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const [
@@ -14,27 +16,27 @@ const Login = () => {
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
 
-      const location =useLocation();
-      const from =location.state?.from?.pathname ||'/';
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
-    const handleEmailBlur =event =>{
+    const handleEmailBlur = event => {
         setEmail(event.target.value);
     }
 
-    const handlePasswordBlur = event =>{
+    const handlePasswordBlur = event => {
         setPassword(event.target.value);
     }
 
 
-    const handleSignInUser = event =>{
+    const handleSignInUser = event => {
         event.preventDefault();
-        signInWithEmailAndPassword(email,password)
+        signInWithEmailAndPassword(email, password)
     }
-    
-    if(user){
-        navigate(from, {replace: true});
+
+    if (user) {
+        navigate(from, { replace: true });
     }
     return (
         <div>
@@ -43,7 +45,7 @@ const Login = () => {
                 <Form onSubmit={handleSignInUser}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control onBlur={handleEmailBlur} type="email" placeholder="Enter email"  required/>
+                        <Form.Control onBlur={handleEmailBlur} type="email" placeholder="Enter email" required />
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
                         </Form.Text>
@@ -65,10 +67,20 @@ const Login = () => {
                     </Button>
                 </Form>
                 <p>
-                Dream Pictures <Link to="/signup">Create a account</Link>
+                    Dream Pictures <Link to="/signup">Create a account</Link>
                 </p>
+                <hr />
+
+              
+
+
+              <SocialLogin></SocialLogin>
+
+
+
             </div>
         </div>
+
     );
 };
 
