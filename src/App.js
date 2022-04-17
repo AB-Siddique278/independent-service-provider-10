@@ -21,11 +21,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
-        <Route path="/service" element={
-
-        <RequireAuth>
-          <Service />
-        </RequireAuth>} />
+        
 
         <Route path="/servicedetail" element={
 
