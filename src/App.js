@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import About from './About';
 import './App.css';
 import Blog from './Blog';
+import Footer from './Footer';
 import Header from './Header';
 import Home from './Home';
 import Login from './Login';
@@ -34,9 +35,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
 
+
+        
+
         <Route path="*" element={<NotFound />} />
       </Routes>
-
+      
+       <Footer></Footer>
 
     </div>
   );

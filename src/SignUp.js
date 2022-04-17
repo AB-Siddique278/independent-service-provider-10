@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import app from "./firebase.init"
 import SocialLogin from './SocialLogin';
+import { sendEmailVerification } from 'firebase/auth';
 
 
 
@@ -50,9 +51,22 @@ const SignUp = () => {
             setError('password must 6 characters')
         }
         createUserWithEmailAndPassword(email, password);
+        // .then(result =>{
+        //     const user = result.user;
+        //     varifyEmail()
+        // })
+        // .catch(error=>{
+        //     setError(error.message);
+        // })
+        varifyEmail()
     }
 
-
+    const varifyEmail = () =>{
+        sendEmailVerification(auth.currentUser)
+        .then(()=>{
+            console.log('send email varifacation')
+        })
+    }
   
 
 

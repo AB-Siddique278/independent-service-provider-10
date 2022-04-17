@@ -3,28 +3,28 @@
       "id": "1",
       "name": "Wedding photography",
       "price": 150,
-      "detail": "5 Star",
+      "detail": "Bangladesh is a beautiful country and a professional photographer is sure to have ideas about the best wedding photography locations. Sundarbans Mangrove Forest",
       "picture": "https://images.pexels.com/photos/2286400/pexels-photo-2286400.jpeg"
     },
     {
       "id": "2",
       "name": "Party",
       "price": 200,
-      "detail": "5 Star",
+      "detail": "Taking party photos is a great way to earn a living while having fun. There are three very important steps to party photography... we show you how!",
       "picture": "https://images.pexels.com/photos/1787220/pexels-photo-1787220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       "id": "3",
       "name": "Product Promotion",
       "price": 350,
-      "detail": "5 Star",
+      "detail": "Promoting your product with videos and photos is a critical piece to its success. Using this visual medium can help you create a promotional strategy. ",
       "picture": "https://images.pexels.com/photos/2388569/pexels-photo-2388569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       "id": "4",
       "name": "Model",
       "price": 500,
-      "detail": "5 Star",
+      "detail": "Hello, I am a professional freelance photographer and photo editor. I am using Photoshop CC and Lightroom for editing pictures. I have good experience.",
       "picture": "https://images.pexels.com/photos/947785/pexels-photo-947785.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
     
