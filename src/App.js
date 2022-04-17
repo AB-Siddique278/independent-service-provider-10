@@ -9,6 +9,7 @@ import Login from './Login';
 import NotFound from './NotFound';
 import RequireAuth from './RequireAuth';
 import Service from './Service';
+import Servicedetail from './Servicedetail';
 import SignUp from './SignUp';
 
 function App() {
@@ -21,10 +22,18 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/service" element={
-          
+
         <RequireAuth>
           <Service />
         </RequireAuth>} />
+
+        <Route path="/servicedetail" element={
+
+
+          <RequireAuth>
+            <Servicedetail />
+          </RequireAuth>
+        } />
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />

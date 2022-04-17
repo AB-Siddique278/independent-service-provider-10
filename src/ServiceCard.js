@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card, CardGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
     const { name, id, picture, detail, price } = service;
@@ -17,7 +18,16 @@ const ServiceCard = ({ service }) => {
                             <h5 className="card-title">{name}</h5>
                             <h5>price:$ {price}</h5>
                             <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <Button variant="primary">Go for service details</Button>
+
+                            
+                            
+
+                            <Link to="/servicedetail">
+
+
+                                <Button variant="primary">Go for service details</Button>
+
+                            </Link>
                         </div>
                         
                 </div>
