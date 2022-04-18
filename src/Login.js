@@ -1,3 +1,4 @@
+import { sendEmailVerification, sendPasswordResetEmail } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -34,6 +35,14 @@ const Login = () => {
         event.preventDefault();
         signInWithEmailAndPassword(email, password)
     }
+    
+    const handlepass=()=>{
+        sendPasswordResetEmail(auth, email)
+        .then(()=>{
+            console.log('Email sent')
+        })
+    }
+
 
     if (user) {
         navigate(from, { replace: true });
@@ -66,6 +75,7 @@ const Login = () => {
                         Submit
                     </Button>
                 </Form>
+                <Button onClick={handlepass} variant="link"> Forgat password</Button>
                 <p>
                     Dream Pictures <Link to="/signup">Create a account</Link>
                 </p>

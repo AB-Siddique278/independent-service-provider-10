@@ -22,7 +22,7 @@ const SignUp = () => {
     const [error, setError] = useState('');
     
     const navigate = useNavigate();
-    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth)
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true})
 
     const handleEmailBlur = event => {
         setEmail(event.target.value);
@@ -42,6 +42,7 @@ const SignUp = () => {
     }
 
     const handleCreateUser = event => {
+
         event.preventDefault();
         if (password !== confirmpassword) {
             setError('your two password dosenot match');
@@ -50,23 +51,19 @@ const SignUp = () => {
         if (password.length < 5) {
             setError('password must 6 characters')
         }
-        createUserWithEmailAndPassword(email, password);
-        // .then(result =>{
-        //     const user = result.user;
-        //     varifyEmail()
-        // })
-        // .catch(error=>{
-        //     setError(error.message);
-        // })
-        varifyEmail()
+        createUserWithEmailAndPassword(email, password)
+        .then(result =>{
+            const user = result.user;
+            
+        })
+        .catch(error=>{
+            setError(error.message);
+        })
+
+        
     }
 
-    const varifyEmail = () =>{
-        sendEmailVerification(auth.currentUser)
-        .then(()=>{
-            console.log('send email varifacation')
-        })
-    }
+   
   
 
 
